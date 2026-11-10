@@ -1,57 +1,19 @@
-import { useState, useEffect } from 'react';
-import { obtenerObrasAPI } from '../services/artApi';
+import { useEffect, useState } from 'react';
 import ObraCard from '../components/ObraCard';
+import { obtenerObras } from '../services/obrasService';
 
 export default function Portafolio() {
   const [obras, setObras] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+  const [error, setError] = useState('');
   useEffect(() => {
-    const controller = new AbortController(); // Manejador para cancelar la petición
-
-    obtenerObrasAPI(controller.signal)
-      .then((data) => {
-        setObras(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (err.name !== 'AbortError') {
-          setError('Error al conectar con la API de arte');
-          setLoading(false);
-        }
-      });
-
-    // Cancela la petición si el usuario cambia de pestaña
-    return () => controller.abort();
+    obtenerObras().then(setObras).catch(() => setError('No fue posible cargar la colección. Intenta nuevamente.')).finally(() => setLoading(false));
   }, []);
-
-  if (loading)
-    return (
-      <div style={{ textAlign: 'center', padding: '3rem' }}>
-        Cargando Galería desde The Met API...
-      </div>
-    );
-  if (error)
-    return (
-      <div style={{ textAlign: 'center', padding: '3rem', color: '#ef4444' }}>
-        {error}
-      </div>
-    );
-  if (obras.length === 0)
-    return (
-      <div style={{ textAlign: 'center', padding: '3rem' }}>
-        No hay obras disponibles.
-      </div>
-    );
-
-  return (
-    <main className="contenedor-galeria">
-      <div className="grid-obras">
-        {obras.map((obra) => (
-          <ObraCard key={obra.id} obra={obra} />
-        ))}
-      </div>
-    </main>
-  );
+  if (loading) return <main className="estado-carga">Cargando colección MUSA…</main>;
+  if (error) return <main className="estado-carga">{error}</main>;
+  return <main className="contenedor-galeria">
+    <header className="catalogo-header"><p className="eyebrow">COLECCIÓN MUSA</p><h1>Obras de arte</h1><p>Descubre piezas seleccionadas de nuestra colección.</p></header>
+    {obras.length === 0 ? <p className="estado-carga">Aún no hay obras publicadas. Vuelve pronto.</p> :
+      <div className="grid-obras">{obras.map(obra => <ObraCard key={obra.id} obra={obra}/>)}</div>}
+  </main>;
 }
