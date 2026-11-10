@@ -1,29 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { useApp } from '../context/AppContext';
 
 export default function Navbar() {
-  return (
-    <nav
-      style={{
-        padding: '1rem',
-        background: '#1a1a1a',
-        color: '#fff',
-        display: 'flex',
-        gap: '1rem',
-      }}
-    >
-      <strong>Galería MUSA</strong>
-      <NavLink to="/" style={{ color: '#fff' }}>
-        Inicio
-      </NavLink>
-      <NavLink to="/portafolio" style={{ color: '#fff' }}>
-        Obras
-      </NavLink>
-      <NavLink to="/nosotros" style={{ color: '#fff' }}>
-        Nosotros
-      </NavLink>
-      <NavLink to="/contacto" style={{ color: '#fff' }}>
-        Contacto
-      </NavLink>
-    </nav>
-  );
+  const { usuario, logout } = useApp();
+  return <nav className="musa-nav">
+    <Link className="musa-brand" to="/">GALERÍA <span>MUSA</span></Link>
+    <div className="musa-links">
+      <NavLink to="/">Inicio</NavLink><NavLink to="/portafolio">Obras</NavLink>
+      <NavLink to="/nosotros">Nosotros</NavLink><NavLink to="/contacto">Contacto</NavLink>
+      <NavLink to="/carrito">Carrito</NavLink>
+      {usuario?.rol === 'admin' ? <><NavLink to="/admin">Administrar</NavLink><button className="nav-logout" onClick={logout}>Salir</button></> : <NavLink to="/login">Administración</NavLink>}
+    </div>
+  </nav>;
 }
