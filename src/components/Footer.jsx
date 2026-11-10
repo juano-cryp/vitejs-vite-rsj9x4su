@@ -1,15 +1,8 @@
 export default function Footer() {
   return (
-    <footer
-      style={{
-        padding: '1rem',
-        textAlign: 'center',
-        background: '#333',
-        color: '#fff',
-        marginTop: '2rem',
-      }}
-    >
-      <p>© 2026 Galería MUSA</p>
+    <footer>
+      <p><strong>♛ MUSA</strong> · Tu galería de arte de confianza</p>
+      <p>Arte que conecta · © {new Date().getFullYear()} Galería MUSA</p>
     </footer>
   );
 }
