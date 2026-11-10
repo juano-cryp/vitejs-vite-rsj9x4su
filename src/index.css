@@ -1,111 +1,15 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
-}
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{font-family:'DM Sans',sans-serif;color:#27232b;background:#faf9f7;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}body{margin:0}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{cursor:pointer}
+#root{min-height:100vh;display:flex;flex-direction:column}.musa-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px clamp(20px,6vw,88px);background:#211d22;color:#fff;flex-wrap:wrap}
+.musa-brand{font-weight:700;letter-spacing:.18em;font-size:17px}.musa-brand span{color:#d7b7a5}.musa-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap;font-size:14px}.musa-links a.active{color:#e4bda8}.nav-logout{border:1px solid #8d7d82;background:transparent;color:#fff;padding:7px 12px;border-radius:4px}
+main{flex:1}.catalogo-header,.admin-page>header,.login-page{text-align:center;padding:54px 20px 32px}.eyebrow{font-size:11px;letter-spacing:.2em;color:#9b7567;font-weight:700}.catalogo-header h1,.admin-page h1,.login-page h1,.detalle-obra h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,54px);font-weight:500;margin:12px 0}
+.contenedor-galeria{padding:0 clamp(18px,6vw,88px) 70px}.grid-obras{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:26px}
+.obra-card{background:#fff;border:1px solid #eee8e3;border-radius:7px;overflow:hidden;opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease,box-shadow .25s ease}.obra-card.visible{opacity:1;transform:translateY(0)}.obra-card:hover{box-shadow:0 16px 35px #38291b16;transform:translateY(-4px)}
+.obra-imagen-container{height:260px;display:block;background:#f0ece8;overflow:hidden}.obra-imagen-container img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.obra-card:hover img{transform:scale(1.045)}.imagen-vacia{height:100%;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:36px;color:#b8a49a}
+.obra-info{padding:19px}.obra-info h3{font-family:'Playfair Display',serif;font-size:22px;margin:6px 0}.obra-info p{margin:7px 0;color:#68616a}.precio{font-weight:700;color:#493b3a!important}.obra-card-actions,.admin-actions{display:flex;gap:10px;margin-top:16px}.btn-detalle,.obra-card-actions button{display:inline-flex;justify-content:center;align-items:center;border:0;background:#806052;color:white;padding:11px 16px;border-radius:4px;font-size:13px}.obra-card-actions button{background:#eee6e1;color:#59443a}
+.estado-carga{text-align:center;padding:70px 20px}.detalle-obra{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);gap:45px;max-width:1100px;margin:55px auto;padding:0 24px}.detalle-obra img{width:100%;max-height:620px;object-fit:contain;background:#f0ece8}.detalle-obra section{padding:24px 0}.detalle-obra section p{margin:18px 0;line-height:1.7}
+.login-page{max-width:520px;margin:35px auto 70px;padding:40px;background:white;border:1px solid #eee8e3;border-radius:8px}.login-form{display:grid;gap:18px;text-align:left;margin-top:28px}.login-form label,.admin-fields label{display:grid;gap:7px;font-size:13px;font-weight:600}.login-form input,.admin-fields input,.admin-fields textarea{width:100%;padding:12px;border:1px solid #ded6d1;border-radius:4px;background:#fff;color:#27232b}.login-form button{width:100%;margin-top:8px}.error-text{color:#b42318;font-size:13px}
+.admin-page{max-width:1100px;margin:0 auto;padding:0 22px 70px}.admin-form,.admin-list{background:#fff;border:1px solid #eee8e3;border-radius:7px;padding:25px;margin:20px 0}.admin-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px}.campo-completo{grid-column:1/-1}.admin-row{display:flex;align-items:center;gap:15px;padding:14px 0;border-bottom:1px solid #eee8e3}.admin-row img{width:64px;height:64px;object-fit:cover}.admin-row div{flex:1}.admin-row p{font-size:13px;color:#777}.admin-row button{padding:8px 12px;border:1px solid #d8cec8;background:#fff;border-radius:4px}
+footer{padding:24px;text-align:center;background:#211d22;color:#d8cbc5;font-size:13px}
+@media(max-width:700px){.musa-nav{align-items:flex-start}.musa-links{gap:12px}.detalle-obra{grid-template-columns:1fr;margin:25px auto}.admin-fields{grid-template-columns:1fr}.campo-completo{grid-column:auto}.admin-row{flex-wrap:wrap}.login-page{margin:20px;padding:25px}}
